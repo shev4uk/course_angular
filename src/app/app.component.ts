@@ -25,7 +25,17 @@ export class AppComponent {
       name: 'product 3',
       price: 31
     }
-  ]
+  ];
+
+  newProduct = '';
+
+  addProduct() {
+    this.products.push({
+      id: 4,
+      name: this.newProduct,
+      price: 31
+    })
+  }
 
   changeTitle() {
     this.title = 'Lesson';

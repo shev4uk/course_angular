@@ -12,6 +12,10 @@
   </ul>
 </div>
 
+<div>
+  <input type="text" [(ngModel)]="newProduct">
+  <button (click)="addProduct()">Add</button>
+</div>
 <div class="list-products">
   <div class="item-product" *ngFor="let item of products">
     <h3>{{ item.name }}</h3>

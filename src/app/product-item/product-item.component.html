@@ -1,0 +1,19 @@
+<div [ngClass]="{'active': price > 0}">
+    <button [disabled]="disable" (click)="addToCart(5)">Add to cart</button>
+</div>
+<!-- <input type="text" [value]="amount" (input)="amount=$event.target.value">
+{{amount}} -->
+<input type="number" #quantity>
+<button (click)="changeQuantity(quantity.value)">change</button>
+<div>
+    <button (click)="decrease()">-</button>
+    <input type="number" min="1" [value]="amount" (input)="amount=$event.target.value">
+    {{amount}}
+    <button (click)="increase()">+</button>
+</div>
+<ul>
+    <li *ngFor="let option of options" (click)="selectSize(option)">
+        {{ option }}
+    </li>
+</ul>
+<p>{{ userName }}</p>

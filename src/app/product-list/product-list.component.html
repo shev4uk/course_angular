@@ -1,1 +1,9 @@
-<app-product-single *ngFor="let item of products" [product]="item"></app-product-single>
+<p #elSize>{{size}}</p>
+<ng-container *ngIf="count > 0">
+    <p>Кількість {{count}}</p>
+    <p>Ціна {{total}}</p>
+</ng-container>
+<div class="dark">
+    <app-product-single *ngFor="let item of products" [product]="item" (addCart)="addCart($event)" (changeSize)="changeSize($event)"></app-product-single>
+</div>
+

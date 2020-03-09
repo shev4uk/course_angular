@@ -1,0 +1,20 @@
+@import '../../assets/scss/var';
+
+.product-single {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+p {
+    color: $color-price;
+}
+
+:host {
+    display: block;
+    border: 1px solid red;
+}
+
+:host-context(.dark) .product-single {
+    background-color: black;
+    color: white;
+}

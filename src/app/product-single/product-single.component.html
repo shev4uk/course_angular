@@ -1,3 +1,7 @@
-{{product.name}}
-{{product.price}}
-<button [disabled]="!product.status">Add</button>
+<div class="product-single">
+    <p>{{product.name}}</p>
+    <p>{{product.price}}</p>
+    <button (click)="addSize('m')">m</button>
+    <button (click)="addSize('l')">l</button>
+    <button [disabled]="!product.status" (click)="addToCart(product)">Add</button>
+</div>

@@ -1,0 +1,10 @@
+<p>home works!</p>
+{{ date | date : 'dd LLLL yyyy'}}
+{{ .2 | percent }}
+{{ 10 | currency}}
+{{ 'test string' | string }}
+<input type="text" [(ngModel)]="searchInput">
+<button (click)="changeSort()">Sort</button>
+<div *ngFor="let item of products | sort : directionSort | search : searchInput">
+    {{ item.name }} {{ item.price }}
+</div>

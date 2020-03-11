@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course';
+  color: string;
+
+  setColor(color) {
+    this.color = color;
+    console.log(this.color);
+  }
 }

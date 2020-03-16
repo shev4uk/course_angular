@@ -1,0 +1,18 @@
+<form [formGroup]="regForm" (ngSubmit)="regUser()">
+    {{ form.name.valid }}
+    <div>
+        <input type="text" formControlName="name">
+        <span *ngIf="!form.name.valid && !form.name.pristine">
+            Name is required
+        </span>
+    </div>
+    <div>
+        <input type="email" formControlName="email">
+    </div>
+    <div>
+        <input type="password" formControlName="password">
+    </div>
+    <input type="submit" class="btn" value="Registration" [disabled]="!regForm.valid">
+    {{regForm.valid}}
+</form>
+

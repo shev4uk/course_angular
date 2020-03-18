@@ -1,0 +1,15 @@
+
+<form (ngSubmit)="onAddProduct()" [formGroup]="formAddProduct">
+    <div>
+        <input type="text" formControlName="name">
+    </div>
+    <div>
+        <input type="number" formControlName="price">
+    </div>
+    <input type="submit">
+</form>
+<div *ngFor="let product of products; let i = index">
+    <p>{{ product.name }}</p>
+    <p>{{ product.price }}</p>
+    <button (click)="deleteProduct(i)">Delete</button>
+</div>

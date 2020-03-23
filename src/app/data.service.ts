@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Product } from './product.model';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  deleteProductSubject = new Subject();
+  viewCatalog = new BehaviorSubject('list');
 
   products: Product[] = [
     {
@@ -38,6 +42,7 @@ export class DataService {
 
   deleteProduct(id) {
     this.products.splice(id, 1);
+    this.deleteProductSubject.next(1);
   }
 
 }

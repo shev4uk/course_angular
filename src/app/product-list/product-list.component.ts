@@ -24,6 +24,10 @@ export class ProductListComponent implements OnInit {
     this.formAddProduct = this.fb.group({
       name: [''],
       price: ['']
+    });
+
+    this.dataService.viewCatalog.subscribe( (view) => {
+      console.log(view);
     })
   }
 

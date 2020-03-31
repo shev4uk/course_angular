@@ -1,0 +1,30 @@
+<form class="example-form" [formGroup]="formTest" (ngSubmit)="onSubmit()">
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+            <mat-error *ngIf="formTest.controls.email.hasError('email')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="formTest.controls.email.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="formTest.controls.password.hasError('pattern')">
+                Minimum eight characters, at least one letter and one number
+            </mat-error>
+            <mat-error *ngIf="formTest.controls.password.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-full-width">
+        <mat-checkbox formControlName="check" required>I agree</mat-checkbox>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="!formTest.valid">Send</button>
+</form>

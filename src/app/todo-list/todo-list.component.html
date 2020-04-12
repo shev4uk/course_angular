@@ -1,1 +1,7 @@
 <button (click)="addTodo()">Add todo</button>
+<div *ngFor="let todo of todos">
+    {{todo.test}}
+    {{todo.id}}
+    <button (click)="removeTodo(todo.id)">Remove todo</button>
+    <button (click)="editTodo(todo)">Edit todo</button>
+</div>

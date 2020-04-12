@@ -17,12 +17,14 @@ export class TodoService {
   }
 
   addTodo() {
-    const uid = this.authService.currentUserId;
+    const uid = this.authService.userDetails.uid;
     this.afs.collection('todos').add({test: 'sdfdfs', uid: uid})
   }
 
   getAllTodo() {
-    const uid = this.authService.currentUserId;
+    console.log(this.authService.userDetails);
+    const uid = this.authService.userDetails.uid;
+    // return this.afs.collection('todos').valueChanges();
     return this.afs.collection('todos', ref => ref.where('uid', '==', uid)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Test;
@@ -30,5 +32,16 @@ export class TodoService {
         return { id, ...data };
       }))
     );
+    // return this.afs.collection('todos', ref => ref.where('uid', '==', uid)).valueChanges();
+  }
+
+  removeTodo(id) {
+    console.log(id);
+    this.afs.doc(`todos/${id}`).delete();
+  }
+
+  editTodo(todo) {
+    todo.test = 'update';
+    this.afs.doc(`todos/${todo.id}`).update(todo);
   }
 }

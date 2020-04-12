@@ -72,15 +72,15 @@ export class AuthService {
     await this.afAuth.signOut();
   }
 
-  get authenticated(): boolean {
-    if (this.userDetails == null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  // get authenticated(): boolean {
+  //   if (this.userDetails == null) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
-  get currentUserId(): string {
-    return this.authenticated ? this.userDetails.uid : '';
-  }
+  // get currentUserId(): string {
+  //   return this.userDetails == null ? this.userDetails.uid : '';
+  // }
 }
